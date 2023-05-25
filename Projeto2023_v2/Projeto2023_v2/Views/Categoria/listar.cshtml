@@ -1,0 +1,58 @@
+﻿@model IEnumerable<CategoriaModel>
+@{
+    ViewData["Title"] = "listar";
+}
+
+<h1>Listar Categorias</h1>
+
+<span class="alert @ViewBag.classe">@ViewBag.mensagem</span>
+
+<script>
+
+function confirmExclusao(id) {
+   if (confirm("Tem certeza que deseja excluir essa categoria?")) {
+    
+       location.href ="/Categoria/excluir/" + id;
+     
+   }
+}
+</script>
+
+<a href="~/categoria/cadastro" class="btn btn-info">
+    Novo
+</a>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Código</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Alterar</th>
+            <th scope="col">Excluir</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.id</th>
+                <td>@item.descricao</td>
+                <td>
+                    <a href="~/Categoria/prealterar/@item.id"
+                       class="btn btn-primary" >
+                        Alterar
+                    </a>
+                </td>
+                <td>
+                    <a href="#"
+                       class="btn btn-primary" onclick="confirmExclusao(@item.id)">
+                        Excluir
+                    </a>
+                </td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>

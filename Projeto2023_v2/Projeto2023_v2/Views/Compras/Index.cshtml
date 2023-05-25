@@ -1,0 +1,158 @@
+﻿@model IEnumerable<ComprasProdutoModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
+}
+
+<h1>Minha Compra</h1>
+<div class="col-12">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Produto</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col">Qtde</th>
+                <th scope="col"></th>
+                <th scope="col">Valor</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody id="dados">
+            @foreach (var item in Model)
+            {
+
+
+                <tr>
+                    <td class="codigo">@item.id</td>
+                    <td>
+                        <img src="~/Imagens/@item.produto.imagem"
+                             class="rounded-circle" height="40"
+                             width="40" asp-append version="true" />
+                    </td>
+                    <td>
+                        @item.produto.descricao
+                    </td>
+                    <td>
+                        <select class="qtde">
+                            @if (item.qtde == 1)
+                            {
+                                <option value="1" selected>1</option>
+                            }
+                            else
+                            {
+                                <option value="1">1</option>
+}
+                            @if (item.qtde == 2)
+                            {
+                                <option value="2" selected>2</option>
+}
+                            else
+                            {
+                                <option value="2">2</option>
+}
+                            @if (item.qtde == 3)
+                            {
+                                <option value="3" selected>3</option>
+}
+                            else
+                            {
+                                <option value="3">3</option>
+}
+
+                        </select>
+
+                    </td>
+                    <td>
+
+                        <a href="#" onclick="confirmExclusao(@item.id)">Remover</a>
+                    </td>
+                    <td class="totalTD">
+                        R$ @item.valor
+                       
+                    </td>
+                    <td>
+                        <input type="hidden" value="@item.valor" class="total" />
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+<div class="row justify-content-end">
+    <div class="card" style="width: 18rem;">
+
+        <div class="card-body">
+            <h5 class="card-title">Total</h5>
+            <p class="card-text">R$ 00,00</p>
+            <a href="~/Compras/Finalizar" class="btn btn-primary">Finalizar</a>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <a href="~/HomeSite/Index" class="btn btn-primary">Continuar comprando</a>
+</div>
+@section Scripts {
+    
+    <script>
+        $(document).ready(function () {
+            calculaTotal();
+
+
+            $(".qtde").change(function () {
+                var qtde = $(this).val();
+                var id = $(this).parent().parent().find(".codigo").text();
+                atualizarqtde(id, qtde);
+
+            });
+        });
+
+        function calculaTotal() {
+            var total = 0;
+            $(".total").each(function (index, item) {
+                total += parseFloat( $(item).val());
+            });
+            $(".card-text").text("R$ " + total);
+        }
+
+        function confirmExclusao(id) {
+            if (confirm("Tem certeza que deseja excluir essa categoria?")) {
+
+                location.href = "/Compras/excluirProduto/" + id;
+
+            }
+        }
+
+        function atualizarqtde(id, qtde) {
+
+            $.ajax({
+                type: "GET",
+                url: "/Compras/alterarQtde?id=" + id + "&qtde=" + qtde,
+                contentType: "application/json; charset=utf-8",
+                data: "{}",
+                dataType: "json",
+                success: function (jsonResult) {
+                    console.log(jsonResult);
+                    $(".codigo").each(function (index, item) {
+                     
+                        if (parseInt( $(item).text()) == jsonResult.id) {
+                            var linha = $(item).parent();
+                          
+                            $(linha).find(".totalTD").text("R$ " + jsonResult.valor);
+                            $(linha).find(".total").val(jsonResult.valor);
+                            calculaTotal();
+                        }
+                    });
+                    
+                },
+                failure: function (response) {
+                    alert("Erro ao carregar os dados: " + response);
+                }
+             });
+
+        }
+
+    </script>
+}

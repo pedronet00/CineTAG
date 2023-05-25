@@ -1,0 +1,74 @@
+﻿@model ProdutoModel
+@{
+    ViewData["Title"] = "cadastro";
+}
+
+<h1>cadastro</h1>
+
+<form enctype="multipart/form-data" asp-action="salvar" asp-controller="produto"
+      method="post">
+    <div class="row">
+
+        <div class="col-12 form-group">
+            <label asp-for="id"></label>
+            <input readonly type="text" asp-for="id" class="form-control" />
+            <span asp-validation-for="id" class="alert-danger"></span>
+        </div>
+
+        <div class="col-12 form-group">
+            <label asp-for="descricao">Nome</label>
+            <input type="text" asp-for="descricao" class="form-control" />
+            <span asp-validation-for="descricao" class="alert-danger"></span>
+        </div>
+
+        <div class="col-12 form-group">
+            <label asp-for="sinopse">Sinopse</label>
+            <input type="text" asp-for="sinopse" class="form-control" />
+            <span asp-validation-for="sinopse" class="alert-danger"></span>
+        </div>
+
+        <div class="col-12 form-group">
+            <label asp-for="dataCadastro">Data de Cadastro</label>
+            <input type="text" asp-for="dataCadastro" class="form-control" />
+            <span asp-validation-for="dataCadastro" class="alert-danger"></span>
+        </div>
+
+        <div class="col-12 form-group">
+            <label asp-for="valor">Preço</label>
+            <input type="text" asp-for="valor" class="form-control" />
+            <span asp-validation-for="valor" class="alert-danger"></span>
+        </div>
+
+
+        <div class="col-12 form-group">
+            <label asp-for="idCategoria"></label>
+            <select class="form-control" asp-for="idCategoria" asp-items="@ViewBag.listacategorias">
+                <option>Selecione uma categoria.....</option>
+
+            </select>
+            <span asp-validation-for="valor" class="alert-danger"></span>
+        </div>
+
+        <div class="col-12 form-group">
+            <label>É Destaque?</label>
+            <input type="checkbox" asp-for="ehDestaque" class="form-check-input" />
+            <span asp-validation-for="ehDestaque" class="alert-danger"></span>
+        </div>
+
+        <div class="col-12 form-group">
+            <label>Imagem</label>
+            <input id="customFile" type="file" asp-for="arquivoImagem" class="form-control" />
+            <span asp-validation-for="arquivoImagem" class="alert-danger"></span>
+        </div>
+
+        <div class="col-12 form-group">
+            <input type="submit" class="btn btn-primary" value="Salvar" />
+        </div>
+
+        <span class="alert @ViewBag.classe">@ViewBag.mensagem</span>
+
+    </div>
+</form>
+
+
+

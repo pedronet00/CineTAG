@@ -1,0 +1,441 @@
+﻿@model ProdutoModel
+@{
+    ViewData["Title"] = "detalhes";
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
+}
+
+<h1 style="text-align: center;">@Model.descricao</h1>
+
+<div class="card mb-3">
+    <img src="~/Imagens/@Model.imagem" class="card-img-top" alt="...">
+    <div class="card-body">
+        <p class="card-text">@Model.sinopse</p>
+        <p class="card-text"><b>Valor: </b>R$ @Model.valor</p>
+        <p><b>Duração:</b> 120 min</p>
+        <p><b>Diretor:</b> James Gunn</p>
+    </div>
+</div>
+
+<p style="margin: auto;">
+    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+        27/05
+    </a>
+    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample">
+        28/05
+    </a>
+    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample">
+        29/05
+    </a>
+    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample4" role="button" aria-expanded="false" aria-controls="collapseExample">
+        30/05
+    </a>
+</p>
+
+<div class="collapse" id="collapseExample">
+    <h2 style="text-align: center;">27/05</h2>
+    <div class="card card-body">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col">
+                    Sala 03
+                </div>
+                <div class="col-6" style="display: flex;">
+                    <div class="horarios">
+                        19:40
+                    </div>
+
+                    <div class="horarios" style="margin-left: 7em;">
+                        20:40
+                    </div>
+
+                    <div class="horarios" style="margin-left: 7em;">
+                        21:40
+                    </div>
+                    
+                </div>
+                <div class="col">
+                    DUB
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    Sala 04
+                </div>
+                <div class="col-6" style="display: flex;">
+                    <div class="horarios">
+                        20:00
+                    </div>
+
+                    <div class="horarios" style="margin-left: 7em;">
+                        22:20
+                    </div>
+                </div>
+                <div class="col">
+                    DUB
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    Sala 05
+                </div>
+                <div class="col-6" style="display: flex;">
+                    <div class="horarios">
+                        18:00
+                    </div>
+
+                    <div class="horarios" style="margin-left: 7em;">
+                        20:40
+                    </div>
+
+                    <div class="horarios" style="margin-left: 7em;">
+                        23:00
+                    </div>
+
+                </div>
+                <div class="col">
+                    LEG
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    Sala 09
+                </div>
+                <div class="col-6" style="display: flex;">
+                    <div class="horarios">
+                        17:30
+                    </div>
+
+                    <div class="horarios" style="margin-left: 7em;">
+                        20:00
+                    </div>
+
+                    <div class="horarios" style="margin-left: 7em;">
+                        22:20
+                    </div>
+
+                </div>
+                <div class="col">
+                    DUB
+                </div>
+            </div>
+        </div>
+    </div>
+</div>  
+
+
+<br/><br/>
+
+
+<div class="collapse" id="collapseExample2">
+    <h2 style="text-align: center;">28/05</h2>
+    <div class="card card-body">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    Sala 07
+                </div>
+                <div class="col-6" style="display: flex;">
+                    <div class="horarios">
+                        15:40
+                    </div>
+
+                    <div class="horarios" style="margin-left: 7em;">
+                        21:40
+                    </div>
+
+                    <div class="horarios" style="margin-left: 7em;">
+                        23:40
+                    </div>
+
+                </div>
+                <div class="col">
+                    DUB
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    Sala 10
+                </div>
+                <div class="col-6" style="display: flex;">
+                    <div class="horarios">
+                        15:00
+                    </div>
+                </div>
+                <div class="col">
+                    DUB
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    Sala 02
+                </div>
+                <div class="col-6" style="display: flex;">
+                    <div class="horarios">
+                        13:00
+                    </div>
+
+                    <div class="horarios" style="margin-left: 7em;">
+                        18:40
+                    </div>
+
+                    <div class="horarios" style="margin-left: 7em;">
+                        23:00
+                    </div>
+
+                </div>
+                <div class="col">
+                    LEG
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    Sala 12
+                </div>
+                <div class="col-6" style="display: flex;">
+                    <div class="horarios">
+                        17:30
+                    </div>
+
+                    <div class="horarios" style="margin-left: 7em;">
+                        20:00
+                    </div>
+
+                    <div class="horarios" style="margin-left: 7em;">
+                        22:20
+                    </div>
+
+                </div>
+                <div class="col">
+                    DUB
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<br /><br />
+
+
+<div class="collapse" id="collapseExample3">
+    <h2 style="text-align: center;">29/05</h2>
+    <div class="card card-body">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    Sala 05
+                </div>
+                <div class="col-6" style="display: flex;">
+                    <div class="horarios">
+                        12:40
+                    </div>
+
+                    <div class="horarios" style="margin-left: 7em;">
+                        18:30
+                    </div>
+
+                    <div class="horarios" style="margin-left: 7em;">
+                        22:40
+                    </div>
+
+                </div>
+                <div class="col">
+                    LEG
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    Sala 06
+                </div>
+                <div class="col-6" style="display: flex;">
+                    <div class="horarios">
+                        16:00
+                    </div>
+                    <div class="horarios" style="margin-left: 7em;">
+                        19:00
+                    </div>
+                </div>
+                <div class="col">
+                    DUB
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    Sala 02
+                </div>
+                <div class="col-6" style="display: flex;">
+                    <div class="horarios">
+                        15:00
+                    </div>
+
+                    <div class="horarios" style="margin-left: 7em;">
+                        17:40
+                    </div>
+
+                    <div class="horarios" style="margin-left: 7em;">
+                        21:00
+                    </div>
+
+                </div>
+                <div class="col">
+                    LEG
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    Sala 10
+                </div>
+                <div class="col-6" style="display: flex;">
+                    <div class="horarios">
+                        12:30
+                    </div>
+
+                    <div class="horarios" style="margin-left: 7em;">
+                        18:00
+                    </div>
+
+                    <div class="horarios" style="margin-left: 7em;">
+                        20:20
+                    </div>
+
+                </div>
+                <div class="col">
+                    DUB
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<br /><br />
+
+
+<div class="collapse" id="collapseExample4">
+    <h2 style="text-align: center;">30/05</h2>
+    <div class="card card-body">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    Sala 11
+                </div>
+                <div class="col-6" style="display: flex;">
+                    <div class="horarios">
+                        13:40
+                    </div>
+
+                    <div class="horarios" style="margin-left: 7em;">
+                        16:30
+                    </div>
+
+                    <div class="horarios" style="margin-left: 7em;">
+                        22:00
+                    </div>
+
+                </div>
+                <div class="col">
+                    DUB
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    Sala 06
+                </div>
+                <div class="col-6" style="display: flex;">
+                    <div class="horarios">
+                        15:30
+                    </div>
+                </div>
+                <div class="col">
+                    DUB
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    Sala 08
+                </div>
+                <div class="col-6" style="display: flex;">
+                    <div class="horarios">
+                        12:00
+                    </div>
+
+                    <div class="horarios" style="margin-left: 7em;">
+                        19:40
+                    </div>
+
+                    <div class="horarios" style="margin-left: 7em;">
+                        22:00
+                    </div>
+
+                </div>
+                <div class="col">
+                    LEG
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    Sala 12
+                </div>
+                <div class="col-6" style="display: flex;">
+                    <div class="horarios">
+                        13:30
+                    </div>
+
+                    <div class="horarios" style="margin-left: 7em;">
+                        19:00
+                    </div>
+
+                    <div class="horarios" style="margin-left: 7em;">
+                        22:20
+                    </div>
+
+                </div>
+                <div class="col">
+                    LEG
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

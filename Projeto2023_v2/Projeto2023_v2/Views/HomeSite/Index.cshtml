@@ -1,0 +1,188 @@
+﻿@model IEnumerable<ProdutoModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
+}
+
+<link rel="stylesheet" href="styles_home.css">
+
+<body>
+
+<div class="bd-example">
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="~/imagens/gdg.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Guardiões da Galáxia Vol. 3 chegou com tudo!</h5>
+                    <p>Peter Quill deve reunir sua equipe para defender o universo e proteger um dos seus. Se a missão não for totalmente bem-sucedida, isso pode levar ao fim dos Guardiões..</p>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <img src="~/imagens/faf.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>O Fim da Estrada está chegando!</h5>
+                    <p>Dom Toretto e sua família devem lidar com o adversário mais letal que já enfrentaram.</p>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <img src="~/imagens/homemaranha.webp" class="d-block w-100" alt="..." height="625" />
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>O cabeça de teia está de volta!</h5>
+                    <p>Depois de se reunir com Gwen Stacy, Homem-Aranha é pego através do Multiverso, onde ele encontra uma equipe de Pessoas-Aranha encarregada de proteger sua própria existência.</p>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
+<br/><br />
+
+<h2>Os Destaques da Semana!</h2>
+
+<div class="row mb-2">
+    
+    <br />
+    @foreach (var item in Model)
+    {
+        if(item.ehDestaque == true)
+        {
+            <div class="col-md-6">
+
+                <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+                    <div class="card-body d-flex flex-column align-items-start">
+
+                        <h3 class="mb-0">
+                            <a class="text-dark" href="https://getbootstrap.com.br/docs/4.1/examples/blog/#">@item.descricao</a>
+                        </h3>
+                        <div class="mb-1 text-muted">R$ @item.valor</div>
+                        <p class="card-text mb-auto">Este é um card maior com suporte à texto, em baixo, como uma introdução mais natural ao conteúdo adicional.</p>
+                        <a href="~/HomeSite/detalhes/@item.id"
+                           class="btn btn-primary">
+                            Comprar
+                        </a>
+                    </div>
+                    <img class="card-img-right flex-auto d-none d-lg-block" style="width: 200px; height: 250px;" src="~/imagens/@item.imagem" />
+                </div>
+            </div>
+        }
+
+    
+    }
+    <br/><br/>
+
+        <div class="card mb-3" style="background-color: #1f1f1f;">
+            <img src="~/imagens/claquete.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h2 class="card-title" style="text-align: center; font-size: 32px; font-family: Arial; color: white;"><b>O QUE VEM POR AÍ!</b></h2>
+                <p class="card-text" style="text-align: center; color: white;">Fique por dentro das novidades do CineTAG para não perder nada. Ah, caso você deseje, se inscreva na nossa NewsLetter e receba aas atualizações por
+                    e-mail! O formulário para cadastro estará no final da página.
+                </p>
+            </div>
+        
+       
+
+    <br/><br/>
+    
+
+
+
+<div class="card-columns">
+    <div class="card">
+        <img src="~/imagens/gdg3.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">As críticas chegaram!</h5>
+            <p class="card-text">O que será que os avaliadores do IMBD disseram sobre o filme? <a href="#">Venha conferir!</a></p>
+        </div>
+    </div>
+
+    
+
+    <div class="card">
+        <img src="~/imagens/sw3.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Sessão nostalgia!</h5>
+            <p class="card-text">O CineTAG, excepcionalmente, exibirá 5 sessões de <b>Star Wars: A Vingança dos Sith</b> entre os dias 25 e 26. Fique atento à programação especial!</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+    </div>
+
+    <div class="card bg-primary text-white text-center p-3">
+        <blockquote class="blockquote mb-0">
+            <h2>CineTAG</h2>
+            <footer class="blockquote-footer text-white">
+                <small>
+                    Nossa missão é te transportar para outros mundos!
+                </small>
+            </footer>
+        </blockquote>
+    </div>
+
+        <div class="card">
+            <img src="~/imagens/gdg3.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">As críticas chegaram!</h5>
+                <p class="card-text">O que será que os avaliadores do IMBD disseram sobre o filme? <a href="#">Venha conferir!</a></p>
+            </div>
+        </div>
+
+    <div class="card">
+        <img src="~/imagens/promocao.jpg" class="card-img-top" alt="...">
+    </div>
+
+    <div class="card p-3 text-right">
+        <blockquote class="blockquote mb-0">
+            <p><i>"Velozes e Furiosos 10 retoma a essência dos filmes antigos. Corrida, ação e família. Excelente filme!"</i></p>
+            <footer class="blockquote-footer">
+                <small class="text-muted">
+                                Katiúscia Vianna, <cite title="Source Title">Redatora do AdoroCinema</cite>
+                </small>
+            </footer>
+        </blockquote>
+    </div>
+
+        <div class="card">
+            <img src="~/imagens/pequenasereia.webp" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Representatividade na Disney!</h5>
+                <p class="card-text">Pela primeira vez, uma Pequena Sereia preta. O que os fãs acham? E a crítica? <a href="#">Venha conferir!</a></p>
+            </div>
+        </div>
+</div>
+
+        </div>
+
+        <br /><br /><br /><br />
+
+        <form style="width: 75%; margin: auto;">
+            <h2 style="text-align: center;">Inscreva-se agora na nossa NewsLetter e fique por dentro de todo o conteúdo do cinema mundial!</h2>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Nome Completo</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nome Completo">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Endereço de e-mail</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="E-mail">
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Concordo em receber notícias do mundo do cinema mundial, bem como atualizações do sistema CineTAG.</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Inscrever-se</button>
+        </form>
+</body>

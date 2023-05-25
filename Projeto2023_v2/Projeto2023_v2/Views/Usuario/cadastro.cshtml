@@ -1,0 +1,53 @@
+﻿@model UsuarioModel
+@{
+    ViewData["Title"] = "cadastro";
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
+}
+
+
+<form asp-action="salvar" asp-controller="Usuario"
+      method="post">
+
+    <div class="form-row justify-content-center">
+        <div class="form-group col-md-10">
+            <label asp-for="nome"></label>
+            <input type="text" asp-for="nome" class="form-control" />
+            <span asp-validation-for="nome" class="alert-danger"></span>
+        </div>
+        <div class="form-group col-md-10">
+            <label asp-for="email"></label>
+            <input type="text" asp-for="email" class="form-control" />
+            <span asp-validation-for="email" class="alert-danger"></span>
+        </div>
+        <div class="form-group col-md-10">
+            <label asp-for="senha"></label>
+            <input type="text" asp-for="senha" class="form-control" />
+            <span asp-validation-for="senha" class="alert-danger"></span>
+        </div>
+        <div class="form-group col-md-10">
+            <label asp-for="PerfilEnum">Selecione um perfil</label>
+            <select asp-for="PerfilEnum" class="form-control">
+                <option value="0">Administrador</option>
+                <option value="1">Padrão</option>
+            </select>
+
+            <span asp-validation-for="PerfilEnum" class="alert-danger">
+
+            </span>
+
+        </div>
+
+        <!-- Campo oculto para armazenar a data e hora do cadastro -->
+        <input type="hidden" id="data-cadastro" name="data-cadastro">
+
+        <div class="col-10 form-group">
+            <input type="submit" class="btn btn-primary" value="Salvar" />
+        </div>
+    </div>
+    <span class="alert @ViewBag.classe">@ViewBag.mensagem</span>
+
+</form>
+
+<script>
+    // Define a data de cadastro atual no campo oculto antes de enviar o formulário
+    document.getElementById("DataCadastro").value = new Date().toISOString();</script>

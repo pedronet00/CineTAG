@@ -1,0 +1,28 @@
+﻿@model Projeto2023_v2.Models.CategoriaModel
+@{
+    ViewData["Title"] = "cadastro";
+}
+
+<h1>cadastro</h1>
+<form asp-controller="Categoria" asp-action="salvar"
+      method="post">
+    <div class="row">
+        <div class="col-12 form-group">
+            <label asp-for="id"></label>
+            <input readonly type="text" asp-for="id" class="form-control" />
+            <span asp-validation-for="id" class="alert-danger"></span>
+        </div>
+        <div class="col-12 form-group">
+            <label asp-for="descricao"></label>
+            <input type="text" asp-for="descricao" class="form-control" />
+            <span asp-validation-for="descricao" class="alert-danger"></span>
+        </div>
+        <div class="col-12 form-group">
+            <input type="submit" class="btn btn-primary" value="Salvar" />
+        </div>
+        
+            <span class="alert @ViewBag.classe">@ViewBag.mensagem</span>
+        
+    </div>
+</form>
+
